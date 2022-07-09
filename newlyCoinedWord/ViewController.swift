@@ -68,29 +68,19 @@ class ViewController: UIViewController {
         let userInputText = textField.text
         guard let userInputText = userInputText else { return }
         
-        switch userInputText {
-        case "모각코":
-            resultLabel.text = list[userInputText]
-        case "무물보":
-            resultLabel.text = list[userInputText]
-        case "쿠쿠루삥뽕":
-            resultLabel.text = list[userInputText]
-        case "알잘딱깔센":
-            resultLabel.text = list[userInputText]
-        case "쉽살재빙":
-            resultLabel.text = list[userInputText]
-        default:
-            resultLabel.textColor = .red
-            resultLabel.text = "검색한 신조어 정보가 없습니다."
-        }
-        
-        textField.text = ""
+        changeAndReturn(userInputText)
     }
     
     @IBAction func returnKey(_ sender: UITextField) {
         
         resultLabel.text = ""
-        guard let sender = sender.text else { return }
+        let userInputText = sender.text
+        guard let userInputText = userInputText else { return }
+        
+        changeAndReturn(userInputText)
+    }
+    
+    func changeAndReturn(_ sender: String) {
         
         switch sender {
         case "모각코":
@@ -110,5 +100,6 @@ class ViewController: UIViewController {
         
         textField.text = ""
     }
+    
 }
 
