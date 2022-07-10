@@ -143,6 +143,10 @@
                         <outlet property="resultLabel" destination="3Oc-7y-SRJ" id="7gr-cX-sGh"/>
                         <outlet property="searchButton" destination="tOa-Y3-tE3" id="Yoh-zu-6UB"/>
                         <outlet property="textField" destination="ks5-2h-nlN" id="gQX-UD-8oc"/>
+                        <outletCollection property="buttonList" destination="amh-i6-FSE" collectionClass="NSMutableArray" id="sb4-ld-W4D"/>
+                        <outletCollection property="buttonList" destination="Ny2-MR-lBN" collectionClass="NSMutableArray" id="Hl6-bF-TUl"/>
+                        <outletCollection property="buttonList" destination="n3Q-PD-0Fa" collectionClass="NSMutableArray" id="QRE-IK-QQN"/>
+                        <outletCollection property="buttonList" destination="Dha-d3-AYy" collectionClass="NSMutableArray" id="gnQ-CU-K18"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

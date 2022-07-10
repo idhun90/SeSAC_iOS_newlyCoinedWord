@@ -18,9 +18,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var resultImage: UIImageView!
     
+    //해시태그 아울렛 컬렉션
+    @IBOutlet var buttonList: [UIButton]!
+    
     let list = [
         "모각코": "모여서 각자 코딩", "무물보": "무엇이든물어보세요", "쿠쿠루삥뽕": "ㅋㅋㅋㅋ", "알잘딱깔센": "알아서 잘 딱 깔끔하고 센스있게", "쉽살재빙": "쉽게만 살면 재미없고 빙고"
     ]
+    
+    //해시태그 추적 관리용
+    var buttonNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +37,13 @@ class ViewController: UIViewController {
         designButton(resultButton4)
         designTextField()
         desingResultPage()
+        
+        //해시태그 버튼 숨김 처리
+        for i in buttonList {
+            
+            i.isHidden = true
+            
+        }
     }
     
     func designButton(_ button: UIButton) {
@@ -46,16 +59,19 @@ class ViewController: UIViewController {
     }
     
     func designTextField() {
+        
         textField.placeholder = "신조어를 입력하세요."
         textField.attributedPlaceholder = NSAttributedString(string:textField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         
     }
     
     func desingResultPage() {
+        
         resultImage.image = UIImage(named: "background")
         resultLabel.text = "신조어의 의미는?"
         resultLabel.textColor = .systemOrange
         resultLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
     }
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
@@ -69,6 +85,8 @@ class ViewController: UIViewController {
         guard let userInputText = userInputText else { return }
         
         changeAndReturn(userInputText)
+        hashTag(sender: userInputText)
+        
     }
     
     @IBAction func returnKey(_ sender: UITextField) {
@@ -78,6 +96,8 @@ class ViewController: UIViewController {
         guard let userInputText = userInputText else { return }
         
         changeAndReturn(userInputText)
+        hashTag(sender: userInputText)
+        
     }
     
     func changeAndReturn(_ sender: String) {
@@ -99,6 +119,19 @@ class ViewController: UIViewController {
         }
         
         textField.text = ""
+    }
+    
+    func hashTag(sender: String) {
+        
+        buttonList[buttonNumber].setTitle(sender, for: .normal)
+        buttonList[buttonNumber].isHidden = false
+        buttonNumber += 1
+        
+        if buttonNumber == buttonList.count {
+            buttonNumber = 0
+            
+        }
+        
     }
     
 }
