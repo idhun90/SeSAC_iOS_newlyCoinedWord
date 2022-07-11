@@ -89,7 +89,8 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func returnKey(_ sender: UITextField) {
+    
+    @IBAction func searchActionWithReturnKey(_ sender: UITextField) {
         
         resultLabel.text = ""
         let userInputText = sender.text
@@ -101,6 +102,8 @@ class ViewController: UIViewController {
     }
     
     func changeAndReturn(_ sender: String) {
+        
+        resultLabel.textColor = .systemOrange // default 구문이 실행된 후 텍스트 컬러가 계속 빨간색으로 설정되어 있는 부분 초기화
         
         switch sender {
         case "모각코":
@@ -127,12 +130,14 @@ class ViewController: UIViewController {
         buttonList[buttonNumber].isHidden = false
         buttonNumber += 1
         
+        
         if buttonNumber == buttonList.count {
             buttonNumber = 0
-            
         }
+        
         
     }
     
 }
+
 
